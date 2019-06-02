@@ -31,7 +31,7 @@ MainWindow::MainWindow(QWidget *parent) :
             QString msg;
             msg.sprintf("Opening serial failed! Error: %i.", err);
             if (err == 2)
-                msg.append("Please check your device permission.");
+                msg.append("Check: device permission and/or whether it is being used.");
             ui->port_status->setText(msg);
         }
     }
@@ -67,12 +67,11 @@ bool MainWindow::getTelemetryUSB(QSerialPortInfo *info)
 
 void MainWindow::handleReadyRead()
 {
-    char buffer[32];
-    qint64 read;
-    //qint64 bytes = this->serial->bytesAvailable();
+    QByteArray ba;
+    qint64 bytes = this->serial->bytesAvailable();
 
-    read = this->serial->read(buffer, sizeof(buffer));
-    buffer[read - 1] = '\0';
-    this->ui->textSerialPort->setText(buffer);
+    ba.reserve((static_cast<int>(bytes)));
 
+    this->serial->read(ba.data(), 32);
+    this->ui->textSerialPort->append(ba.data());
 }
