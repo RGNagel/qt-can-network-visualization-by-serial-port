@@ -17,15 +17,17 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
-    QSerialPortInfo * getTelemetryUSB();
+    bool getTelemetryUSB(QSerialPortInfo *info);
 
 private slots:
 
-    void bytesWritten(qint64 bytes);
+    //void bytesWritten(qint64 bytes);
+    void handleReadyRead();
 
 private:
     Ui::MainWindow *ui;
     quint16 const TELEMETRY_USB_ID_PRODUCT = 0xea60;
+    QSerialPort *serial;
 };
 
 #endif // MAINWINDOW_H
