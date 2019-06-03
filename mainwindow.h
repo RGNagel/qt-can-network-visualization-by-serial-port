@@ -30,4 +30,16 @@ private:
     QSerialPort *serial;
 };
 
+class CanBus {
+public:
+    enum ID {
+        ENGINE_ECU = 0,
+        BATTERY_ECU = 4,
+        TELEMETRY_ECU = 8,
+        DIFF_ECU = 16,
+        ACC_ECU = 32,
+    };
+private:
+};
+
 #endif // MAINWINDOW_H
