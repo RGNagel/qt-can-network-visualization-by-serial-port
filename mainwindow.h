@@ -6,6 +6,8 @@
 #include <QSerialPort>
 #include <QSerialPortInfo>
 
+#include "ecu.h"
+
 namespace Ui {
 class MainWindow;
 }
@@ -24,10 +26,13 @@ private slots:
     //void bytesWritten(qint64 bytes);
     void handleReadyRead();
 
+    void on_Telemetry_ECU_clicked();
+
 private:
     Ui::MainWindow *ui;
     quint16 const TELEMETRY_USB_ID_PRODUCT = 0xea60;
     QSerialPort *serial;
+    ECU ecu;
 };
 
 class CanBus {

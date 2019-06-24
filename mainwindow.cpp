@@ -113,3 +113,8 @@ void MainWindow::handleReadyRead()
     }
 
 }
+
+void MainWindow::on_Telemetry_ECU_clicked()
+{
+    this->ecu.show();
+}

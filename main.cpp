@@ -8,7 +8,7 @@ int main(int argc, char *argv[])
     MainWindow w;
     w.show();
 
-    ECU ecu;
+    //ECU ecu;
     //ecu.show();
 
     return a.exec();
