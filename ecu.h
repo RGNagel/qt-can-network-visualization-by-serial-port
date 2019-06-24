@@ -17,6 +17,8 @@ public:
 
 private:
     Ui::ECU *ui;
+    uint32_t packets_received;
+    //QVector
 };
 
 #endif // ECU_H

@@ -7,7 +7,7 @@
 QT       += core gui \
             serialport
 
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+greaterThan(QT_MAJOR_VERSION, 4): QT += widgets printsupport
 
 TARGET = telemetry
 TEMPLATE = app
@@ -28,11 +28,13 @@ CONFIG += c++11
 SOURCES += \
         ecu.cpp \
         main.cpp \
-        mainwindow.cpp
+        mainwindow.cpp \
+        qcustomplot.cpp
 
 HEADERS += \
         ecu.h \
-        mainwindow.h
+        mainwindow.h \
+        qcustomplot.h
 
 FORMS += \
         ecu.ui \

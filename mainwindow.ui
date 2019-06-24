@@ -761,6 +761,16 @@ font: 9pt &quot;Sans Serif&quot;;</string>
        <string>Engine ECU</string>
       </property>
      </widget>
+     <widget class="QWidget" name="widget" native="true">
+      <property name="geometry">
+       <rect>
+        <x>360</x>
+        <y>300</y>
+        <width>251</width>
+        <height>131</height>
+       </rect>
+      </property>
+     </widget>
     </widget>
    </widget>
   </widget>
