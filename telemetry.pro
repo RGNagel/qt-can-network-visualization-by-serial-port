@@ -26,13 +26,16 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
+        ecu.cpp \
         main.cpp \
         mainwindow.cpp
 
 HEADERS += \
+        ecu.h \
         mainwindow.h
 
 FORMS += \
+        ecu.ui \
         mainwindow.ui
 
 # Default rules for deployment.

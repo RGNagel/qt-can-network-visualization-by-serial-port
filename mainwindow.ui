@@ -7,8 +7,14 @@
     <x>0</x>
     <y>0</y>
     <width>684</width>
-    <height>480</height>
+    <height>495</height>
    </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
@@ -23,11 +29,26 @@
       <height>481</height>
      </rect>
     </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>691</width>
+      <height>481</height>
+     </size>
+    </property>
+    <property name="contextMenuPolicy">
+     <enum>Qt::DefaultContextMenu</enum>
+    </property>
     <property name="acceptDrops">
      <bool>false</bool>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>1</number>
     </property>
     <property name="elideMode">
      <enum>Qt::ElideLeft</enum>
@@ -106,7 +127,7 @@
       </layout>
      </widget>
     </widget>
-    <widget class="QWidget" name="tab_4">
+    <widget class="QWidget" name="CanBusMap">
      <attribute name="title">
       <string>Can Bus Units</string>
      </attribute>
@@ -154,7 +175,7 @@
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QLabel" name="label_4">
+     <widget class="QLabel" name="Diff_ECU">
       <property name="enabled">
        <bool>false</bool>
       </property>
@@ -257,7 +278,7 @@
        <enum>Qt::Vertical</enum>
       </property>
      </widget>
-     <widget class="QLabel" name="label_2">
+     <widget class="QLabel" name="Engine_ECU">
       <property name="enabled">
        <bool>false</bool>
       </property>
@@ -356,7 +377,7 @@
      <widget class="QLabel" name="label_6">
       <property name="geometry">
        <rect>
-        <x>22</x>
+        <x>10</x>
         <y>170</y>
         <width>61</width>
         <height>101</height>
@@ -461,7 +482,7 @@ font: 9pt &quot;Sans Serif&quot;;</string>
      <widget class="QLabel" name="label_5">
       <property name="geometry">
        <rect>
-        <x>20</x>
+        <x>10</x>
         <y>20</y>
         <width>61</width>
         <height>101</height>
@@ -525,7 +546,7 @@ font: 9pt &quot;Sans Serif&quot;;</string>
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QLabel" name="label_3">
+     <widget class="QLabel" name="Battery_ECU">
       <property name="enabled">
        <bool>false</bool>
       </property>
@@ -665,9 +686,9 @@ font: 9pt &quot;Sans Serif&quot;;</string>
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QLabel" name="label_21">
+     <widget class="QLabel" name="Telemetry_ECU">
       <property name="enabled">
-       <bool>true</bool>
+       <bool>false</bool>
       </property>
       <property name="geometry">
        <rect>
@@ -685,6 +706,9 @@ font: 9pt &quot;Sans Serif&quot;;</string>
       </property>
       <property name="acceptDrops">
        <bool>true</bool>
+      </property>
+      <property name="toolTip">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
       <property name="autoFillBackground">
        <bool>true</bool>
@@ -737,7 +761,7 @@ font: 9pt &quot;Sans Serif&quot;;</string>
        <enum>Qt::Vertical</enum>
       </property>
      </widget>
-     <widget class="QLabel" name="label_8">
+     <widget class="QLabel" name="Acc_ECU">
       <property name="enabled">
        <bool>false</bool>
       </property>

@@ -33,13 +33,30 @@ private:
 class CanBus {
 public:
     enum ID {
-        ENGINE_ECU = 0,
-        BATTERY_ECU = 4,
-        TELEMETRY_ECU = 8,
-        DIFF_ECU = 16,
-        ACC_ECU = 32,
+        TELEMETRY_ECU = 10,
+
+        ENGINE_ECU = 20,
+        ENGINE_ECU_TEMP = 19,
+        ENGINE_ECU_ROT = 18,
+
+        BATTERY_ECU = 30,
+        BATTERY_ECU_VOLT = 29,
+        BATTERY_ECU_CURR = 28,
+        BATTERY_ECU_TEMP = 27,
+
+        DIFF_ECU = 40,
+        DIFF_ECU_ANG = 39,
+
+        ACC_ECU = 50,
+        ACC_ECU_G = 49,
+
     };
 private:
+
+    class ECU {
+
+    };
 };
+
 
 #endif // MAINWINDOW_H
