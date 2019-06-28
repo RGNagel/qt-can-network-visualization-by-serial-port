@@ -127,6 +127,13 @@
          </property>
         </widget>
        </item>
+       <item>
+        <widget class="QPushButton" name="terminalButton">
+         <property name="text">
+          <string>Pause Terminal</string>
+         </property>
+        </widget>
+       </item>
       </layout>
      </widget>
     </widget>
@@ -759,16 +766,6 @@ font: 9pt &quot;Sans Serif&quot;;</string>
       </property>
       <property name="text">
        <string>Engine ECU</string>
-      </property>
-     </widget>
-     <widget class="QWidget" name="widget" native="true">
-      <property name="geometry">
-       <rect>
-        <x>360</x>
-        <y>300</y>
-        <width>251</width>
-        <height>131</height>
-       </rect>
       </property>
      </widget>
     </widget>
