@@ -70,6 +70,7 @@ bool MainWindow::getTelemetryUSB(QSerialPortInfo *info)
     return false;
 }
 
+/* handle data from serial port */
 void MainWindow::handleReadyRead()
 {
     QByteArray ba;
@@ -90,74 +91,54 @@ void MainWindow::handleReadyRead()
     sscanf(ba.data(), "id=%hu,data=%hu", &std_id, &data);
 
     /*
+     * we create ECU class for each ECU unity. Within each ECU Unity we can have many variables (ECU::Variable)
+     *
      * std id can match either a ECU unity or a ECU variable
      * ECU unities has the following pattern:
      * x0 e.g. 10, 20, 30, 40, 50... (divisible by 10)
     */
 
-    // if ecu unity
-    if ((std_id % 10) == 0) {
+    uint16_t ecu_unity_id = std_id;
 
-        if (this->ecus.find(std_id) == ecus.end()) {
-            // id does not exist yet
-            this->ecus[std_id] = new ECU;
+    if ((ecu_unity_id % 10) != 0)
+        ecu_unity_id = (((std_id + 10)/10))*10; // get the ecu unity pattern from its variable
+
+    // first we check if ecu unity class was NOT previously created
+    if (this->ecus.find(ecu_unity_id) == ecus.end())
+        this->ecus[ecu_unity_id] = new ECU;
+
+    // if this std_id is a variable from a ecu unity
+    if (std_id != ecu_unity_id) {
+
+        ECU * ecu_unity = this->ecus[ecu_unity_id];
+
+        // check if this variable was NOT previously created
+        if (ecu_unity->vars.find(std_id) == ecu_unity->vars.end()) {
+            ecu_unity->vars[std_id] = new ECU::Variable;
+            ecu_unity->newPlot(std_id);
         }
 
-    }
-    else {
-        // it is a ECU variable
-
-        ECU::Variable *var;
-
-        // for each ecu
-        for (QMap<int, ECU *>::iterator i = this->ecus.begin(); i != ecus.end(); ++i) {
-
-            QMap<int, ECU::Variable *>::iterator found = (*i)->vars.find(std_id);
-
-            if (found == (*i)->vars.end()) {
-                // var. not created yet
-                (*i)->vars[std_id] = new ECU::Variable;
-                var = (*i)->vars[std_id];
-            }
-            else {
-                var = *found;
-            }
-
-        }
-
-
+        ecu_unity->vars[std_id]->addData(data);
 
     }
 
-    switch (std_id) {
+    switch (ecu_unity_id) {
     case ECU::ENGINE_ECU:
-    case ECU::ENGINE_ECU_ROT_L:
-    case ECU::ENGINE_ECU_ROT_R:
-    case ECU::ENGINE_ECU_TEMP_L:
-    case ECU::ENGINE_ECU_TEMP_R:
-
 
         this->ui->Engine_ECU->setEnabled(true);
         break;
 
     case ECU::BATTERY_ECU:
-    case ECU::BATTERY_ECU_VOLT:
-    case ECU::BATTERY_ECU_CURR:
-    case ECU::BATTERY_ECU_TEMP:
 
         this->ui->Battery_ECU->setEnabled(true);
         break;
 
     case ECU::DIFF_ECU:
-    case ECU::DIFF_ECU_ANG:
 
         this->ui->Diff_ECU->setEnabled(true);
         break;
 
     case ECU::ACC_ECU:
-    case ECU::ACC_ECU_G_X:
-    case ECU::ACC_ECU_G_Y:
-    case ECU::ACC_ECU_G_Z:
 
         this->ui->Acc_ECU->setEnabled(true);
         break;

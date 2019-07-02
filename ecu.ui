@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>451</width>
-    <height>325</height>
+    <width>587</width>
+    <height>612</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -26,7 +26,7 @@
     <string>Packets received:</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_2">
+  <widget class="QLabel" name="packets_received">
    <property name="geometry">
     <rect>
      <x>110</x>
@@ -42,12 +42,23 @@
   <widget class="QCustomPlot" name="widget" native="true">
    <property name="geometry">
     <rect>
-     <x>50</x>
-     <y>120</y>
+     <x>280</x>
+     <y>10</y>
      <width>331</width>
      <height>151</height>
     </rect>
    </property>
+  </widget>
+  <widget class="QWidget" name="verticalLayoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>160</y>
+     <width>571</width>
+     <height>281</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="plots"/>
   </widget>
  </widget>
  <customwidgets>

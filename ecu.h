@@ -4,6 +4,7 @@
 #include <QFrame>
 #include <QTime>
 #include <QMap>
+#include "qcustomplot.h"
 
 namespace Ui {
 class ECU;
@@ -40,11 +41,19 @@ public:
     };
 
     class Variable {
+    public:
+        void addData(uint16_t data);
+        void setPlot(QCustomPlot *plot);
+    private:
         QList<uint16_t> data;
-        QTime ts;
+        QDateTime ts;
+        QCustomPlot *plot;
     };
 
     QMap<int, Variable *> vars;
+    uint64_t packets = 0;
+
+    void newPlot(uint16_t variable_id);
 
 private:
     Ui::ECU *ui;

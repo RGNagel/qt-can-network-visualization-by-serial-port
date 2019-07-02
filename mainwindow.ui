@@ -51,12 +51,12 @@
      <bool>false</bool>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>0</number>
     </property>
     <property name="elideMode">
      <enum>Qt::ElideLeft</enum>
     </property>
-    <widget class="QWidget" name="tab_3">
+    <widget class="QWidget" name="terminal">
      <attribute name="title">
       <string>Serial Port (UART)</string>
      </attribute>
@@ -379,7 +379,7 @@ font: 9pt &quot;Sans Serif&quot;;</string>
        <rect>
         <x>590</x>
         <y>180</y>
-        <width>61</width>
+        <width>81</width>
         <height>101</height>
        </rect>
       </property>
@@ -481,7 +481,7 @@ font: 9pt &quot;Sans Serif&quot;;</string>
        <rect>
         <x>590</x>
         <y>20</y>
-        <width>61</width>
+        <width>81</width>
         <height>101</height>
        </rect>
       </property>
