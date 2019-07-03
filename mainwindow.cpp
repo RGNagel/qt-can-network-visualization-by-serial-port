@@ -33,7 +33,7 @@ MainWindow::MainWindow(QWidget *parent) :
             QString msg;
             msg.sprintf("Opening serial failed! Error: %i.", err);
             if (err == 2)
-                msg.append("Check: device permission and/or whether it is being used.");
+                msg.append("Check: device permission and/or its usage.");
             ui->port_status->setText(msg);
         }
     }
@@ -85,10 +85,10 @@ void MainWindow::handleReadyRead()
 
     // interprete message
 
-    uint16_t data;
+    uint16_t data[4];
     uint16_t std_id;
 
-    sscanf(ba.data(), "id=%hu,data=%hu", &std_id, &data);
+    sscanf(ba.data(), "%hu,%hu%hu%hu%hu", &std_id, &data[0], &data[1], &data[2], &data[3]);
 
     /*
      * we create ECU class for each ECU unity. Within each ECU Unity we can have many variables (ECU::Variable)
@@ -118,7 +118,7 @@ void MainWindow::handleReadyRead()
             ecu_unity->newPlot(std_id);
         }
 
-        ecu_unity->vars[std_id]->addData(data);
+        ecu_unity->vars[std_id]->addData(data[0]);
 
     }
 

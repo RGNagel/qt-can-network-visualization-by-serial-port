@@ -43,11 +43,12 @@ public:
     class Variable {
     public:
         void addData(uint16_t data);
-        void setPlot(QCustomPlot *plot);
+        inline void setPlot(QCustomPlot *plot) { this->plot = plot; }
     private:
         QList<uint16_t> data;
         QDateTime ts;
         QCustomPlot *plot;
+        double x_axis = 0;
     };
 
     QMap<int, Variable *> vars;
