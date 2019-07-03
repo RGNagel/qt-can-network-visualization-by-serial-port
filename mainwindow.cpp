@@ -85,10 +85,11 @@ void MainWindow::handleReadyRead()
 
     // interprete message
 
-    uint16_t data[4];
-    uint16_t std_id;
+    // if not 'unsigned int' var then sscanf crashes
+    unsigned int data[4];
+    unsigned int std_id;
 
-    sscanf(ba.data(), "%hu,%hu%hu%hu%hu", &std_id, &data[0], &data[1], &data[2], &data[3]);
+    sscanf(ba.data(), "%4x,%4x,%4x,%4x,%4x\r\n", &std_id, &data[0], &data[1], &data[2], &data[3]);
 
     /*
      * we create ECU class for each ECU unity. Within each ECU Unity we can have many variables (ECU::Variable)

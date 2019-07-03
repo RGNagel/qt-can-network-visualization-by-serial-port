@@ -6,9 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>676</width>
+    <width>682</width>
     <height>612</height>
    </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
   </property>
   <property name="windowTitle">
    <string>Frame</string>
@@ -39,36 +45,22 @@
     <string/>
    </property>
   </widget>
-  <widget class="QCustomPlot" name="widget" native="true">
-   <property name="geometry">
-    <rect>
-     <x>280</x>
-     <y>10</y>
-     <width>331</width>
-     <height>151</height>
-    </rect>
-   </property>
-  </widget>
   <widget class="QWidget" name="verticalLayoutWidget">
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>160</y>
-     <width>651</width>
-     <height>281</height>
+     <y>120</y>
+     <width>661</width>
+     <height>481</height>
     </rect>
    </property>
-   <layout class="QVBoxLayout" name="plots"/>
+   <layout class="QVBoxLayout" name="plots">
+    <property name="sizeConstraint">
+     <enum>QLayout::SetMaximumSize</enum>
+    </property>
+   </layout>
   </widget>
  </widget>
- <customwidgets>
-  <customwidget>
-   <class>QCustomPlot</class>
-   <extends>QWidget</extends>
-   <header>qcustomplot.h</header>
-   <container>1</container>
-  </customwidget>
- </customwidgets>
  <resources/>
  <connections/>
 </ui>
