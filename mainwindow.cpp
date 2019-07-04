@@ -80,7 +80,7 @@ void MainWindow::handleReadyRead()
 
     this->serial->read(ba.data(), 32);
 
-    if (this->ui->textSerialPort->isEnabled())
+    if (this->writeToTerminal)
         this->ui->textSerialPort->append(ba.data());
 
     // interprete message
@@ -153,15 +153,16 @@ void MainWindow::handleReadyRead()
 
 void MainWindow::on_terminalButton_clicked()
 {
-    if (this->ui->textSerialPort->isEnabled()) {
-        this->ui->textSerialPort->setEnabled(false);
+    if (this->writeToTerminal) {
+        // disable
         this->ui->terminalButton->setText("Start Terminal");
+        this->writeToTerminal = false;
     }
     else {
-        this->ui->textSerialPort->setEnabled(true);
+        // enable
         this->ui->terminalButton->setText("Stop Terminal");
+        this->writeToTerminal = true;
     }
-
 }
 
 void MainWindow::on_Telemetry_ECU_clicked()

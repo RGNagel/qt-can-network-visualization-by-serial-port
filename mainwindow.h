@@ -45,6 +45,7 @@ private:
     QSerialPort *serial;
     //ECU ecu;
     QMap<int, ECU *> ecus;
+    bool writeToTerminal = true;
 };
 
 #endif // MAINWINDOW_H
