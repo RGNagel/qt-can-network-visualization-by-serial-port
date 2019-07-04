@@ -26,6 +26,8 @@ void ECU::newPlot(uint16_t variable_id)
     timeTicker->setTimeFormat("%h:%m:%s");
     plot->xAxis->setTicker(timeTicker);
 
+    plot->setInteractions(QCP::iRangeDrag | QCP::iRangeZoom | QCP::iSelectPlottables);
+
     this->vars[variable_id]->setPlot(plot);
     this->ui->plots->addWidget(plot);
 }
@@ -36,14 +38,13 @@ void ECU::Variable::addData(uint16_t data)
 
     static QTime time(QTime::currentTime()); // only once for all objects calling this method
 
-    double x = time.elapsed()/1000.0;
-    //x = time.msecsSinceStartOfDay()/1000.0;
-    x = QDateTime::currentSecsSinceEpoch();
+    double x = (time.elapsed() + time.msecsSinceStartOfDay()) / 1000;
 
     this->plot->graph(0)->addData(x, data);
 
-    // make key axis range scroll with the data (at a constant range size of 8):
-    this->plot->xAxis->setRange(x, 8, Qt::AlignRight);
-    this->plot->graph(0)->rescaleAxes();
+    // make key axis range scroll with the data (at a constant range size of 20):
+
+    this->plot->xAxis->setRange(x, 20, Qt::AlignRight);
+    this->plot->graph(0)->rescaleKeyAxis();
     this->plot->replot();
 }

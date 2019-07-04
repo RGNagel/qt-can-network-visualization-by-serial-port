@@ -91,6 +91,7 @@ void MainWindow::handleReadyRead()
 
     sscanf(ba.data(), "%4x,%4x,%4x,%4x,%4x\r\n", &std_id, &data[0], &data[1], &data[2], &data[3]);
 
+
     /*
      * we create ECU class for each ECU unity. Within each ECU Unity we can have many variables (ECU::Variable)
      *
