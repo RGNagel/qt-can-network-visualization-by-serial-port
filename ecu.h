@@ -5,6 +5,7 @@
 #include <QTime>
 #include <QMap>
 #include "qcustomplot.h"
+#include <QDebug>
 
 namespace Ui {
 class ECU;
@@ -15,7 +16,7 @@ class ECU : public QFrame
     Q_OBJECT
 
 public:
-    explicit ECU(QWidget *parent = nullptr);
+    explicit ECU(QWidget *parent = nullptr, QPushButton *button = nullptr);
     ~ECU();
     enum ID {
         TELEMETRY_ECU = 10,
@@ -37,27 +38,46 @@ public:
         ACC_ECU_G_X = 49,
         ACC_ECU_G_Y = 48,
         ACC_ECU_G_Z	= 47,
-
     };
 
     class Variable {
     public:
+        Variable(QLabel *label)
+        {
+            if (label == nullptr)
+                qDebug() << "label is nullpointer!";
+            this->label = label;
+        }
         void addData(uint16_t data);
         inline void setPlot(QCustomPlot *plot) { this->plot = plot; }
+        inline int getDataQty() { return this->qty_data; }
+        inline QTime getLastTs() { return this->last_ts; }
+
     private:
-        QList<uint16_t> data;
-        QDateTime ts;
+        QTime last_ts;
         QCustomPlot *plot;
-        double x_axis = 0;
+        int qty_data = 0;
+        bool online = false;
+        QLabel *label;
     };
 
-    QMap<int, Variable *> vars;
+    QMap<unsigned int, Variable *> vars;
     uint64_t packets = 0;
 
     void newPlot(uint16_t variable_id);
+    inline QPushButton * getButton() { return this->button; }
+    // get the ecu unity pattern from its variable
+    static inline unsigned int get_ecu_unity_id(unsigned int std_id)
+    {
+        if ((std_id % 10) == 0)
+            return (((std_id + 10)/10))*10;
+        return std_id;
+    }
+    void fillStats();
 
 private:
     Ui::ECU *ui;
+    QPushButton *button;
 };
 
 #endif // ECU_H

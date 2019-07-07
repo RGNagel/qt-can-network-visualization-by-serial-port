@@ -8,6 +8,7 @@
 #include <QMap>
 
 #include "ecu.h"
+#include "stats.h"
 
 namespace Ui {
 class MainWindow;
@@ -21,6 +22,9 @@ public:
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
     bool getTelemetryUSB(QSerialPortInfo *info);
+
+    QLabel * getQLabel(unsigned int);
+    QPushButton * getQPushButton(unsigned int);
 
 private slots:
 
@@ -39,6 +43,8 @@ private slots:
 
     void on_Acc_ECU_clicked();
 
+    void on_label_22_linkActivated(const QString &link);
+
 private:
     Ui::MainWindow *ui;
     quint16 const TELEMETRY_USB_ID_PRODUCT = 0xea60;
@@ -46,6 +52,7 @@ private:
     //ECU ecu;
     QMap<int, ECU *> ecus;
     bool writeToTerminal = true;
+    Stats *stats;
 };
 
 #endif // MAINWINDOW_H

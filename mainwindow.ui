@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>684</width>
-    <height>495</height>
+    <width>721</width>
+    <height>510</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -17,7 +17,7 @@
    </sizepolicy>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>CAN </string>
   </property>
   <widget class="QWidget" name="centralWidget">
    <widget class="QTabWidget" name="tabWidget">
@@ -26,8 +26,8 @@
     </property>
     <property name="geometry">
      <rect>
-      <x>0</x>
-      <y>0</y>
+      <x>10</x>
+      <y>10</y>
       <width>691</width>
       <height>481</height>
      </rect>
@@ -349,7 +349,7 @@ font: 9pt &quot;Sans Serif&quot;;</string>
        <enum>Qt::Vertical</enum>
       </property>
      </widget>
-     <widget class="QLabel" name="tempArrow">
+     <widget class="QLabel" name="eng_temp_l">
       <property name="enabled">
        <bool>false</bool>
       </property>
@@ -454,7 +454,7 @@ font: 9pt &quot;Sans Serif&quot;;</string>
        <enum>Qt::Vertical</enum>
       </property>
      </widget>
-     <widget class="QLabel" name="rotationArrow">
+     <widget class="QLabel" name="eng_rot_l">
       <property name="enabled">
        <bool>false</bool>
       </property>
@@ -566,6 +566,9 @@ font: 9pt &quot;Sans Serif&quot;;</string>
         <height>41</height>
        </rect>
       </property>
+      <property name="accessibleName">
+       <string/>
+      </property>
       <property name="text">
        <string>Temperature ----------------&gt;</string>
       </property>
@@ -675,18 +678,21 @@ font: 9pt &quot;Sans Serif&quot;;</string>
      </widget>
      <widget class="QPushButton" name="Telemetry_ECU">
       <property name="enabled">
-       <bool>false</bool>
+       <bool>true</bool>
       </property>
       <property name="geometry">
        <rect>
         <x>160</x>
-        <y>320</y>
+        <y>350</y>
         <width>131</width>
-        <height>101</height>
+        <height>41</height>
        </rect>
       </property>
       <property name="cursor">
        <cursorShape>PointingHandCursor</cursorShape>
+      </property>
+      <property name="toolTip">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;This Unity does not generate data. It forwards CAN data to this computer.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
       <property name="text">
        <string>Telemetry ECU</string>
@@ -818,7 +824,7 @@ font: 9pt &quot;Sans Serif&quot;;</string>
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QLabel" name="rotationArrow_2">
+     <widget class="QLabel" name="eng_temp_r">
       <property name="enabled">
        <bool>false</bool>
       </property>
@@ -840,7 +846,7 @@ font: 9pt &quot;Sans Serif&quot;;</string>
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QLabel" name="rotationArrow_3">
+     <widget class="QLabel" name="eng_rot_r">
       <property name="enabled">
        <bool>false</bool>
       </property>
