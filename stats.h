@@ -22,11 +22,11 @@ public:
 
 private:
     Ui::Stats *ui;
-    int valid_data;
-    int invalid_data;
+    int valid_data = 0;
+    int invalid_data = 0;
     QTime last_valid_data;
     QTime last_invalid_data;
-    int ecus_online;
+    int ecus_online = 0;
 
     void setLastInvalidData(QTime time);
     void setLastValidData(QTime time);

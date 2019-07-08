@@ -24,7 +24,7 @@ void Stats::valid_data_inc() {
 
 void Stats::invalid_data_inc() {
     this->invalid_data++;
-    this->ui->invalid_data->setNum(this->valid_data);
+    this->ui->invalid_data->setNum(this->invalid_data);
 
     this->ui->raw_data->setNum(this->getTotalData());
 

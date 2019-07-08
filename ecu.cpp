@@ -44,7 +44,6 @@ void ECU::Variable::addData(uint16_t data)
     this->last_ts = QTime::currentTime();
     this->qty_data++;
     this->online = true;
-    this->label->setEnabled(true);
 
     // plot
     static QTime time(QTime::currentTime()); // only once for all objects calling this method
@@ -53,7 +52,8 @@ void ECU::Variable::addData(uint16_t data)
     this->plot->graph(0)->addData(x, data);
     // make key axis range scroll with the data (at a constant range size of 20):
     this->plot->xAxis->setRange(x, 20, Qt::AlignRight);
-    this->plot->graph(0)->rescaleKeyAxis();
+    //this->plot->graph(0)->rescaleKeyAxis();
+    this->plot->graph(0)->rescaleValueAxis();
     this->plot->replot();
 }
 

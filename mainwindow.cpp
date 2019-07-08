@@ -109,9 +109,11 @@ void MainWindow::handleReadyRead()
         uint16_t ecu_unity_id = ECU::get_ecu_unity_id(std_id);
 
         // first we check if ecu unity class was NOT previously created
-        if (this->ecus.find(ecu_unity_id) == ecus.end())
-            this->ecus[ecu_unity_id] = new ECU(this->getQPushButton(ecu_unity_id));
-
+        if (this->ecus.find(ecu_unity_id) == ecus.end()) {
+            QPushButton *bt = this->getQPushButton(ecu_unity_id);
+            if (bt)
+                this->ecus[ecu_unity_id] = new ECU(nullptr, bt);
+        }
         ECU * ecu_unity = this->ecus[ecu_unity_id];
 
         // if this std_id is a variable from a ecu unity. it should always be true because ecu unities don't send data
@@ -119,8 +121,11 @@ void MainWindow::handleReadyRead()
 
             // check if this variable was NOT previously created
             if (ecu_unity->vars.find(std_id) == ecu_unity->vars.end()) {
-                ecu_unity->vars[std_id] = new ECU::Variable(this->getQLabel(std_id));
-                ecu_unity->newPlot(std_id);
+                QLabel *label = this->getQLabel(std_id);
+                if (label) {
+                    ecu_unity->vars[std_id] = new ECU::Variable(label);
+                    ecu_unity->newPlot(std_id);
+                }
             }
 
             // add data
@@ -141,10 +146,8 @@ void MainWindow::handleReadyRead()
 
 }
 
-QLabel * MainWindow::getQLabel(unsigned int std_id)
+QLabel * MainWindow::getQLabel(int std_id)
 {
-    QString obj_name;
-
     switch(std_id) {
         case ECU::ACC_ECU_G_X:
             return this->ui->acc_g_force_x;
@@ -172,7 +175,7 @@ QLabel * MainWindow::getQLabel(unsigned int std_id)
 
     return nullptr;
 }
-QPushButton * MainWindow::getQPushButton(unsigned int std_id)
+QPushButton * MainWindow::getQPushButton(int std_id)
 {
     switch(std_id) {
         case ECU::ACC_ECU:

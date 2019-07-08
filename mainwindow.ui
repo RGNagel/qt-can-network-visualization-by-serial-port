@@ -176,7 +176,7 @@
        <bool>false</bool>
       </property>
       <property name="text">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Voltage   ----------------&amp;gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Voltage ----------&amp;gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -201,7 +201,7 @@
        <bool>false</bool>
       </property>
       <property name="text">
-       <string>Angle &lt;------------------</string>
+       <string>Angle &lt;-----------</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -226,7 +226,7 @@
        <bool>false</bool>
       </property>
       <property name="text">
-       <string>g force X &lt;------------------</string>
+       <string>g force X &lt;-------------</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -355,7 +355,7 @@ font: 9pt &quot;Sans Serif&quot;;</string>
       </property>
       <property name="geometry">
        <rect>
-        <x>70</x>
+        <x>60</x>
         <y>0</y>
         <width>91</width>
         <height>41</height>
@@ -365,7 +365,7 @@ font: 9pt &quot;Sans Serif&quot;;</string>
        <bool>false</bool>
       </property>
       <property name="text">
-       <string>Temp. Left ----------------&gt;</string>
+       <string>Temp. Left ----------&gt;</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -460,14 +460,14 @@ font: 9pt &quot;Sans Serif&quot;;</string>
       </property>
       <property name="geometry">
        <rect>
-        <x>70</x>
+        <x>60</x>
         <y>30</y>
         <width>91</width>
         <height>41</height>
        </rect>
       </property>
       <property name="text">
-       <string>Rot. Left ----------------&gt;</string>
+       <string>Rot. Left ----------&gt;</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -570,7 +570,7 @@ font: 9pt &quot;Sans Serif&quot;;</string>
        <string/>
       </property>
       <property name="text">
-       <string>Temperature ----------------&gt;</string>
+       <string>Temperature ----------&gt;</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -624,7 +624,7 @@ font: 9pt &quot;Sans Serif&quot;;</string>
        </rect>
       </property>
       <property name="text">
-       <string>Current ----------------&gt;</string>
+       <string>Current ----------&gt;</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -790,7 +790,7 @@ font: 9pt &quot;Sans Serif&quot;;</string>
        <bool>false</bool>
       </property>
       <property name="text">
-       <string>g force Y &lt;------------------</string>
+       <string>g force Y &lt;-------------</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -815,7 +815,7 @@ font: 9pt &quot;Sans Serif&quot;;</string>
        <bool>false</bool>
       </property>
       <property name="text">
-       <string>g force Z &lt;------------------</string>
+       <string>g force Z &lt;-------------</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -830,14 +830,14 @@ font: 9pt &quot;Sans Serif&quot;;</string>
       </property>
       <property name="geometry">
        <rect>
-        <x>70</x>
+        <x>60</x>
         <y>60</y>
         <width>91</width>
         <height>41</height>
        </rect>
       </property>
       <property name="text">
-       <string>Temp. Right ----------------&gt;</string>
+       <string>Temp. Right ----------&gt;</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -852,14 +852,14 @@ font: 9pt &quot;Sans Serif&quot;;</string>
       </property>
       <property name="geometry">
        <rect>
-        <x>70</x>
+        <x>60</x>
         <y>90</y>
         <width>91</width>
         <height>41</height>
        </rect>
       </property>
       <property name="text">
-       <string>Rot. Right ----------------&gt;</string>
+       <string>Rot. Right ----------&gt;</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>

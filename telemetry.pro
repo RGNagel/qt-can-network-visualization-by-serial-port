@@ -29,16 +29,19 @@ SOURCES += \
         ecu.cpp \
         main.cpp \
         mainwindow.cpp \
-        qcustomplot.cpp
+        qcustomplot.cpp \
+        stats.cpp
 
 HEADERS += \
         ecu.h \
         mainwindow.h \
-        qcustomplot.h
+        qcustomplot.h \
+        stats.h
 
 FORMS += \
         ecu.ui \
-        mainwindow.ui
+        mainwindow.ui \
+        stats.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

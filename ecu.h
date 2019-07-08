@@ -44,9 +44,13 @@ public:
     public:
         Variable(QLabel *label)
         {
+            this->label = label;
+
             if (label == nullptr)
                 qDebug() << "label is nullpointer!";
-            this->label = label;
+            else
+                label->setEnabled(true);
+
         }
         void addData(uint16_t data);
         inline void setPlot(QCustomPlot *plot) { this->plot = plot; }
@@ -70,8 +74,8 @@ public:
     static inline unsigned int get_ecu_unity_id(unsigned int std_id)
     {
         if ((std_id % 10) == 0)
-            return (((std_id + 10)/10))*10;
-        return std_id;
+            return std_id;
+        return (((std_id + 10)/10))*10;
     }
     void fillStats();
 

@@ -66,7 +66,7 @@
      </widget>
     </item>
     <item row="3" column="1">
-     <widget class="QLabel" name="invalid_data_ts">
+     <widget class="QLabel" name="valid_data_ts">
       <property name="text">
        <string/>
       </property>
@@ -80,7 +80,7 @@
      </widget>
     </item>
     <item row="4" column="1">
-     <widget class="QLabel" name="valid_data_ts">
+     <widget class="QLabel" name="invalid_data_ts">
       <property name="text">
        <string/>
       </property>

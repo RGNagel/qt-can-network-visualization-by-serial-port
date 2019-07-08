@@ -23,8 +23,8 @@ public:
     ~MainWindow();
     bool getTelemetryUSB(QSerialPortInfo *info);
 
-    QLabel * getQLabel(unsigned int);
-    QPushButton * getQPushButton(unsigned int);
+    QLabel * getQLabel(int std_id);
+    QPushButton * getQPushButton(int std_id);
 
 private slots:
 
